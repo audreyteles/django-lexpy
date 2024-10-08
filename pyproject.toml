@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "django-lexpy"
+version = "0.1.0"
+description = "Organize your texts and languages in a simple way."
+authors = ["audreyteles <audreytelesdossantos@gmail.com>"]
+classifiers = ['Framework :: Django', 'Programming Language :: Python :: 3']
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "==3.12.3"
+django = ">=4.2,<5.2"
+typer = ">=0.12.5"
+rich = ">=13.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", ]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+lexpy = "django_lexpy.commands.lexpy:app"

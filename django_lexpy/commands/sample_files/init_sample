@@ -1,0 +1,4 @@
+__all__ = ['messages']
+
+# Import the messages
+from .main import messages
