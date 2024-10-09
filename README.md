@@ -3,7 +3,7 @@
 ---
 ![PyPI](https://img.shields.io/pypi/v/django-lexpy?color=blue&style=flat-square)
 
-This is a package to help you to organize your texts in many languages in a simple way.
+This is a package that helps you organize your texts in several languages in a simple way.
 
 ## Install
 
