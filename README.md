@@ -3,6 +3,8 @@
 
 ![PyPI](https://img.shields.io/pypi/v/django-lexpy?color=blue&style=flat-square)
 
+[![Published on Django Packages](https://img.shields.io/badge/Published%20on-Django%20Packages-0c3c26)](https://djangopackages.org/packages/p/django-lexpy/)
+
 This is a package that helps you organize your texts in several languages in a simple way.
 
 ## Install
