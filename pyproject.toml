@@ -1,15 +1,14 @@
 [tool.poetry]
 name = "django-lexpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Organize your texts and languages in a simple way."
 authors = ["audreyteles <audreytelesdossantos@gmail.com>"]
 classifiers = ['Framework :: Django', 'Programming Language :: Python :: 3']
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "==3.12.3"
-django = ">=4.2,<5.2"
-typer = ">=0.12.5"
+python = ">=3.8"
+django = ">=5.0"
 rich = ">=13.9.2"
 
 [build-system]

@@ -7,15 +7,16 @@ from django.conf import settings
 
 register = template.Library()
 
-# Get language code from settings
-language_settings = settings.LANGUAGE_CODE.replace("-", "_")
-
-lang_module = importlib.import_module(f'lang.{language_settings}')
-messages = lang_module.messages
-
 
 @register.simple_tag
 def lexpy(message):
+    # Get language code from settings
+    language_settings = settings.LANGUAGE_CODE.replace("-", "_")
+
+    # Load messages package
+    lang_module = importlib.import_module(f'lang.{language_settings}')
+    messages = lang_module.messages
+
     command = message.split(".")
 
     assert len(command) == 2, "Your call are wrong, try something like 'message.welcome'"
@@ -27,3 +28,4 @@ def lexpy(message):
     assert message in messages, "This message don't exists!"
 
     return messages.get(message)
+

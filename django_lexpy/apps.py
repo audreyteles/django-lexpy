@@ -1,15 +1,13 @@
 import os
-from pathlib import Path
-
 from django.apps import AppConfig
+
+from django_lexpy.commands import lexpy
 
 
 class LexpyConfig(AppConfig):
     name = "django_lexpy"
-    label = "lexpy"
+    verbose_name = "django-lexpy"
+    dir_project = os.getcwd()
 
-    def __init__(self):
-        self.dir_project = os.getcwd()
-
-    def get(self):
-        return self.dir_project
+    def ready(self):
+        lexpy.main()

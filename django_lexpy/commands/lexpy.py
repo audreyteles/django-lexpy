@@ -1,28 +1,21 @@
 import os
 import rich
-import typer
 import shutil
-import django
+
 from django.conf import settings
-from django_lexpy.apps import LexpyConfig
+from django.apps import apps
 
-app = typer.Typer()
-settings.configure()
 
-@app.command()
 def main():
-    config = LexpyConfig()
-
     rich.print("[green]Initializing lexpy...[/green]")
 
     # if the parameter is not given, get the LANGUAGE_CODE from settings.py
     language = settings.LANGUAGE_CODE.replace("-", "_")
 
     # Store path to a specific folder messages
-    base_dir = os.path.join(config.get(), 'lang', language)
+    base_dir = os.path.join(apps.get_app_config('django_lexpy').dir_project, 'lang', language)
 
     if not os.path.exists(base_dir):
-
         # Make directories
         os.makedirs(base_dir, exist_ok=True)
 
@@ -37,7 +30,3 @@ def main():
             rich.print("[red]Files not found to copy...[/red]")
 
     rich.print("[green]Done![/green]")
-
-
-if __name__ == "__main__":
-    app()
