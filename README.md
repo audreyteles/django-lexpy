@@ -121,3 +121,45 @@ messages = {
     "message.welcome": "Bem-vindo ao meu site.",
 }
 ```
+
+## Replacing Fields in Messages
+
+You can also define fields in your message and replace them with dynamic values.
+
+```python
+# yourproject/lang/en_us/main.py
+messages = {
+    "message.welcome": "Hi {name}, welcome to my website.",
+}
+```
+ And in your template you can:
+
+```html
+{% load lexpy %}
+...
+{% lexpy 'message.welcome' name="Foobar" %}
+...
+```
+
+Then you can see it on your website:
+```
+Hi Foobar, welcome to my website.
+```
+
+
+> **Unnamed fields are also supported**
+> 
+> ```python
+> #yourproject/lang/en_us/main.py
+> messages = {
+>    "message.welcome": "Hi {}, welcome to my website.",
+> }
+> ```
+> ```html
+> {% load lexpy %}
+> ...
+> {% lexpy 'message.welcome' "Foobar" %}
+> ...
+> ```
+
+
