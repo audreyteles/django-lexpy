@@ -1,5 +1,7 @@
+import re
 import importlib
 from django.conf import settings
+
 
 class ShortKey:
     """Class to manage short keys."""
@@ -47,4 +49,33 @@ class ShortKey:
         str
             A message in a specific language
         """
+
         return self.__messages.get(self.__short_key)
+
+    def args(self, *args, **kwargs) -> str:
+        """Replaces fields defined in your messages.
+
+        Returns
+        -------
+        str
+            A message in a specific language
+        """
+
+        message = self.message
+
+        # Find message fields
+        message_vars = re.findall("{([a-z_]+)}", message)
+
+        # If it has at least 1 field
+        if len(message_vars) > 0:
+            # If it has no kwargs (keyword arguments)
+            if len(kwargs) == 0:
+                raise Exception(f"You need to assign values to the following fields: {message_vars}")
+
+            return message.format(**kwargs)
+        # If it has args
+        elif len(args) > 0:
+            return message.format(*args)
+        else:
+            raise Exception(f"Couldn't find named fields in your message. {message}")
+

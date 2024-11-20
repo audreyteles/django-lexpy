@@ -6,5 +6,5 @@ register = template.Library()
 
 
 @register.simple_tag
-def lexpy(short_key: str):
-    return ShortKey(short_key).message
+def lexpy(short_key: str, *args, **kwargs):
+    return ShortKey(short_key).args(*args, **kwargs)
