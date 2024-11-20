@@ -1,4 +1,4 @@
-# Django Lexpy
+# Django Lexpy - v0.1.1
 
 
 ![PyPI](https://img.shields.io/pypi/v/django-lexpy?color=blue&style=flat-square)
