@@ -76,6 +76,7 @@ class ShortKey:
         # If it has args
         elif len(args) > 0:
             return message.format(*args)
-        else:
+        elif len(kwargs) > 0:
             raise Exception(f"Couldn't find named fields in your message. {message}")
 
+        return message
